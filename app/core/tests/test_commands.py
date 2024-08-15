@@ -14,7 +14,7 @@ from psycopg2 import OperationalError as Psycopg2Error
 class CommandTests(SimpleTestCase):
     """Test Commands."""
 
-    def test_wait_db_ready(self, patched_check):
+    def test_wait_for_db_ready(self, patched_check):
         """Test waiting for database if database ready."""
         patched_check.return_value = True
 
