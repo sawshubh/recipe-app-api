@@ -2,8 +2,6 @@
 Serializers for recipe APIs.
 """
 
-from dataclasses import field
-
 from core.models import Ingredient, Recipe, Tag
 from rest_framework import serializers
 

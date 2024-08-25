@@ -5,7 +5,6 @@ Test for recipe APIs.
 import os
 import tempfile
 from decimal import Decimal
-from venv import create
 
 from core.models import Ingredient, Recipe, Tag
 from django.contrib.auth import get_user_model
