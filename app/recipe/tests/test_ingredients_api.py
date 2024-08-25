@@ -6,7 +6,6 @@ from decimal import Decimal
 
 from core.models import Ingredient, Recipe
 from django.contrib.auth import get_user_model
-from django.dispatch import receiver
 from django.test import TestCase
 from django.urls import reverse
 from recipe.serializers import IngredientSerializer
@@ -26,7 +25,7 @@ def create_user(email="user@example.com", password="testpass123"):
     return get_user_model().objects.create_user(email=email, password=password)
 
 
-class PublicIngredientApiTests(TestCase):
+class PublicIngredientsApiTests(TestCase):
     """Test unauthenticated API requests."""
 
     def setUp(self):
@@ -49,7 +48,7 @@ class PrivateIngredientsApiTests(TestCase):
 
     def test_retrieve_ingredients(self):
         """Test retrieving a list of ingredients."""
-        Ingredient.objects.create(user=self.user, name="kale")
+        Ingredient.objects.create(user=self.user, name="Kale")
         Ingredient.objects.create(user=self.user, name="Vanilla")
 
         res = self.client.get(INGREDIENTS_URL)

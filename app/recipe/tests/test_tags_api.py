@@ -3,8 +3,6 @@ Tests for the tags API.
 """
 
 from decimal import Decimal
-from os import name
-from turtle import title
 
 from core.models import Recipe, Tag
 from django.contrib.auth import get_user_model
@@ -13,8 +11,6 @@ from django.urls import reverse
 from recipe.serializers import TagSerializer
 from rest_framework import status
 from rest_framework.test import APIClient
-
-from app.recipe.tests.test_ingredients_api import INGREDIENTS_URL
 
 TAGS_URL = reverse("recipe:tag-list")
 
@@ -110,7 +106,7 @@ class PrivateTagsApiTests(TestCase):
         )
 
         recipe.tags.add(tag1)
-        res = self.client.get(INGREDIENTS_URL, {"assigned_only": 1})
+        res = self.client.get(TAGS_URL, {"assigned_only": 1})
 
         s1 = TagSerializer(tag1)
         s2 = TagSerializer(tag2)
